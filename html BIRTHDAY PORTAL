@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I Am With You 🤍</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    overflow: hidden;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .message {
+    font-size: 1rem;
+    margin: 20px auto;
+    max-width: 90%;
+    line-height: 1.7;
+    opacity: 0.95;
+    position: relative;
+    z-index: 2;
+  }
+
+  .countdown {
+    font-size: 1.3rem;
+    margin-top: 30px;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .footer {
+    margin-top: 50px;
+    font-size: 0.85rem;
+    opacity: 0.7;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* 🤍 HEARTS */
+  .heart {
+    position: absolute;
+    color: rgba(255, 182, 193, 0.6);
+    animation: floatUp linear infinite;
+    pointer-events: none;
+  }
+
+  @keyframes floatUp {
+    0% {
+      transform: translateY(100vh) scale(1);
+      opacity: 0;
+    }
+    15% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-10vh) scale(1.4);
+      opacity: 0;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<h1>For HIS NAME 🤍</h1>
+
+<div class="message">
+  Even when things feel heavy and the world feels loud,<br>
+  remember this — <b>I am with you.</b><br><br>
+  In your silence, in your struggles,<br>
+  and in every moment you feel unsure.
+</div>
+
+<div class="countdown" id="timer"></div>
+
+<div class="footer">
+  Always here for you.<br>
+  From your love 🤍
+</div>
+
+
+<script>
+  // 🎂 COUNTDOWN
+  const birthday = new Date("February 4, 2026 00:00:00").getTime();
+
+  setInterval(() => {
+    const now = new Date().getTime();
+    const gap = birthday - now;
+
+    const days = Math.floor(gap / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((gap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((gap % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((gap % (1000 * 60)) / 1000);
+
+    document.getElementById("timer").innerHTML =
+      `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  }, 1000);
+
+  // 🤍 HEART GENERATOR
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (10 + Math.random() * 16) + "px";
+    heart.style.animationDuration = (6 + Math.random() * 6) + "s";
+
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 10000);
+  }
+
+  setInterval(createHeart, 500);
+</script>
+
+</body>
+</html>
